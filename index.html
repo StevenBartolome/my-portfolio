@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Steven M. Bartolome - Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+        <a class="navbar-brand fw-bold ms-4" href="#home">
+            <span class="brand-text">Mark.dev</span>
+        </a>
+        
+        <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto me-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="hero-content">
+                        <div class="hero-greeting mb-3">
+                            <span class="greeting-text">Hello, I'm</span>
+                        </div>
+                        <h1 class="hero-title mb-4">
+                            Mark Steven M. Bartolome
+                        </h1>
+                        <div class="hero-subtitle mb-4">
+                            <span class="typed-text">IT Student & Developer</span>
+                            <span class="typing-cursor">|</span>
+                        </div>
+                        <p class="hero-description mb-5">
+                            Passionate IT student specializing in Mobile & Web Application Development. 
+                            Creating innovative digital solutions with modern technologies.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary btn-lg me-3">View My Work</a>
+                            <button type="button" class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal">
+                                Contact Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5">
+        <div class="container">
+            <div class="section-container">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-5">
+                        <h2 class="section-title">About Me</h2>
+                        <div class="section-divider"></div>
+                    </div>
+                </div>
+                
+                <div class="row align-items-center">
+                    <!-- About Image -->
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="about-image-container">
+                            <div class="about-image">
+                                <img src="images/profile.png" alt="Mark Steven M. Bartolome" class="profile-img">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <h3 class="about-subtitle mb-4">IT Student | Mobile & Web Developer</h3>
+                            <p class="about-text mb-4">
+                                I'm an enthusiastic IT student with a passion for creating innovative mobile and web applications. 
+                                My journey in technology began with curiosity and has evolved into a dedicated pursuit of excellence 
+                                in software development.
+                            </p>
+                            
+                            <div class="skills-section mb-4">
+                                <h4 class="skills-title mb-3">Technical Skills</h4>
+                                <div class="skills-grid">
+                                    <div class="skill-item">
+                                        <i class="fab fa-html5"></i>
+                                        <span>HTML5</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fab fa-css3-alt"></i>
+                                        <span>CSS3</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fab fa-js-square"></i>
+                                        <span>JavaScript</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fab fa-php"></i>
+                                        <span>PHP</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fas fa-database"></i>
+                                        <span>MySQL</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fab fa-java"></i>
+                                        <span>Java</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fab fa-python"></i>
+                                        <span>Python</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fas fa-fire"></i>
+                                        <span>Firebase</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fas fa-code"></i>
+                                        <span>XML</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fab fa-android"></i>
+                                        <span>Kotlin</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fas fa-infinity"></i>
+                                        <span>InfinityFree</span>
+                                    </div>
+                                    <div class="skill-item">
+                                        <i class="fas fa-globe"></i>
+                                        <span>Web Dev</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- <div class="about-stats">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="stat-item">
+                                            <h4 class="stat-number" data-value="15">15+</h4>
+                                            <p class="stat-label">Projects</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="stat-item">
+                                            <h4 class="stat-number" data-value="2">2+</h4>
+                                            <p class="stat-label">Years Learning</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="stat-item">
+                                            <h4 class="stat-number" data-value="100">100%</h4>
+                                            <p class="stat-label">Dedication</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section py-5">
+        <div class="container">
+            <div class="section-container">
+                <div class="row">
+                    <div class="col-lg-12 text-center mb-5">
+                        <h2 class="section-title">My Projects</h2>
+                        <div class="section-divider"></div>
+                        <p class="section-description">Here are some of my recent works in mobile and web development</p>
+                    </div>
+                </div>
+                
+                <div class="project-carousel">
+                    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="JRB Trucking"></button>
+                            <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="1" aria-label="JBS Apartment"></button>
+                            <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="2" aria-label="Purple Dreams"></button>
+                            <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="3" aria-label="PalengkeGo"></button>
+                            <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="4" aria-label="E-commerce Website"></button>
+                        </div>
+                        
+                        <div class="carousel-inner">
+                            <!-- Project 1 - JRB Trucking -->
+                            <div class="carousel-item active">
+                                <div class="card project-card">
+                                    <div class="project-image">
+                                        <img src="images/jrb-trucking.jpg" alt="JRB Trucking Website" class="img-fluid">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="#" class="project-link" target="_blank">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="project-link" target="_blank">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">JRB Trucking Management System</h5>
+                                        <p class="card-text">
+                                            A comprehensive web-based trucking management system with features for fleet management,
+                                            driver scheduling, maintenance tracking, and real-time reporting. Hosted on InfinityFree
+                                            for reliable and cost-effective deployment.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">PHP</span>
+                                            <span class="tech-tag">MySQL</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">HTML/CSS</span>
+                                            <span class="tech-tag">InfinityFree</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 2 - JBS Apartment -->
+                            <div class="carousel-item">
+                                <div class="card project-card">
+                                    <div class="project-image">
+                                        <img src="images/jbs-apartment.png" alt="JBS Apartment Management System" class="img-fluid">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="#" class="project-link" target="_blank">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="project-link" target="_blank">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">JBS Apartment Management System</h5>
+                                        <p class="card-text">
+                                            A Java-based desktop application for apartment management featuring a user-friendly GUI.
+                                            Manages tenant information, rent collection, maintenance requests, and generates detailed reports
+                                            using MySQL database.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">Java</span>
+                                            <span class="tech-tag">Java GUI</span>
+                                            <span class="tech-tag">MySQL</span>
+                                            <span class="tech-tag">JDBC</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 3 - Purple Dreams -->
+                            <div class="carousel-item">
+                                <div class="card project-card">
+                                    <div class="project-image">
+                                        <img src="images/purple-dreams.jpg" alt="Purple Dreams Website" class="img-fluid">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="#" class="project-link" target="_blank">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="project-link" target="_blank">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Purple Dreams E-commerce</h5>
+                                        <p class="card-text">
+                                            A dynamic e-commerce platform built with PHP and MySQL, featuring product management,
+                                            shopping cart functionality, user authentication, and order processing system with
+                                            a modern and responsive design.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">PHP</span>
+                                            <span class="tech-tag">MySQL</span>
+                                            <span class="tech-tag">HTML</span>
+                                            <span class="tech-tag">CSS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 4 - PalengkeGo -->
+                            <div class="carousel-item">
+                                <div class="card project-card">
+                                    <div class="project-image">
+                                        <img src="images/palengkego.jpg" alt="PalengkeGo Mobile App" class="img-fluid">
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="#" class="project-link view-project" data-bs-toggle="modal" data-bs-target="#imageViewModal" 
+                                                   data-image="images/palengkego.jpg" data-title="PalengkeGo Mobile App">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="project-link" target="_blank">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">PalengkeGo Mobile App</h5>
+                                        <p class="card-text">
+                                            A native Android application developed in Kotlin that connects local market vendors with customers.
+                                            Features real-time product listings, order tracking, and secure payment integration using
+                                            Firebase backend.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">Kotlin</span>
+                                            <span class="tech-tag">XML</span>
+                                            <span class="tech-tag">Firebase</span>
+                                            <span class="tech-tag">Android SDK</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 5 - E-commerce Website -->
+                            <div class="carousel-item">
+                                <div class="card project-card">
+                                    <div class="project-image">
+                                        <img src="images/e-commerce.png" alt="maeVen" class="img-fluid">
+                                        <div class="project-placeholder">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                        <div class="project-overlay">
+                                            <div class="project-links">
+                                                <a href="#" class="project-link" target="_blank">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <a href="#" class="project-link" target="_blank">
+                                                    <i class="fab fa-github"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Modern E-commerce Website</h5>
+                                        <p class="card-text">
+                                            A clean and modern e-commerce website design showcasing products with a beautiful user interface.
+                                            Features responsive design, animated transitions, and intuitive navigation built with pure
+                                            HTML and CSS.
+                                        </p>
+                                        <div class="project-tech">
+                                            <span class="tech-tag">HTML</span>
+                                            <span class="tech-tag">CSS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">
+                        <i class="fas fa-envelope me-2"></i>
+                        Contact Me
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid first name.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid last name.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid email address.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" required>
+                            <div class="invalid-feedback">
+                                Please provide a subject.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                            <div class="invalid-feedback">
+                                Please provide a message.
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-success d-none" id="successAlert">
+                            <i class="fas fa-check-circle me-2"></i>
+                            Your message has been sent successfully! I'll get back to you soon.
+                        </div>
+                        
+                        <div class="alert alert-danger d-none" id="errorAlert">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            Please fill in all required fields correctly.
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="contactForm" class="btn btn-primary">
+                        <i class="fas fa-paper-plane me-2"></i>
+                        Send Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+    <div class="container">
+        <div class="section-container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-description">Let's connect and discuss opportunities</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-info">
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <h5>Email</h5>
+                                    <p>marksteven.0211@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-facebook"></i>
+                                    </div>
+                                    <h5>Facebook</h5>
+                                    <p>
+                                    
+                                            Mark Steven Bartolome
+                                    
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-github"></i>
+                                    </div>
+                                    <h5>GitHub</h5>
+                                    <p>
+                                    
+                                            StevenBartolome
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal">
+                                <i class="fas fa-envelope me-2"></i>
+                                Send Message
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="mb-0">&copy; 2025 Mark Steven M. Bartolome. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <div class="social-links">
+                    <a href="https://github.com/StevenBartolome" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/Istibennnnnnnnnnnnnn.11" class="social-link" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Add this modal for image viewing -->
+    <div class="modal fade" id="imageViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title project-view-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="" alt="" class="img-fluid project-view-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
