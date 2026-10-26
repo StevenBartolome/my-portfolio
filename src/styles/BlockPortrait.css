@@ -1,0 +1,79 @@
+/* ==========================================================================
+   BlockPortrait Component Styles
+   ========================================================================== */
+
+.portrait-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 470px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: crosshair;
+}
+
+.portrait-cutout,
+.portrait-canvas {
+  width: 100%;
+  max-height: 580px;
+  object-fit: contain;
+  object-position: bottom center;
+  position: relative;
+  z-index: 4;
+  mask-image: radial-gradient(ellipse 92% 86% at 52% 48%, black 65%, rgba(0, 0, 0, 0.9) 78%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 92% 86% at 52% 48%, black 65%, rgba(0, 0, 0, 0.9) 78%, transparent 100%);
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.08));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portrait-wrapper:hover .portrait-cutout {
+  transform: scale(1.02);
+}
+
+/* Reset Chip that appears when blocks are stamped */
+.block-reset-chip {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: var(--bg-secondary);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  animation: fadeIn 0.25s ease;
+}
+
+.block-reset-chip svg {
+  color: var(--color-orange);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.block-reset-chip:hover {
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+  border-color: var(--color-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.22);
+}
+
+.block-reset-chip:hover svg {
+  transform: rotate(-180deg);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

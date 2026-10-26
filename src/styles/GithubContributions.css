@@ -1,0 +1,242 @@
+/* ==========================================================================
+   GitHub Contributions Dot Matrix Panel Styles
+   ========================================================================== */
+
+.github-section {
+  padding: 60px 0 70px;
+  background: transparent;
+  position: relative;
+}
+
+.github-panel-container {
+  width: 100%;
+  max-width: var(--container-max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Header Row */
+.github-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.github-handle-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.github-handle-link:hover {
+  color: var(--accent-orange);
+  transform: translateX(2px);
+}
+
+.github-handle-link svg {
+  transition: transform 0.2s ease;
+}
+
+.github-handle-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Grid Wrapper & Horizontal Scrolling */
+.github-grid-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 18px 0;
+  display: flex;
+  justify-content: center;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.github-grid-wrapper::-webkit-scrollbar {
+  height: 4px;
+}
+
+.github-grid-wrapper::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.github-grid {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  min-width: max-content;
+  padding: 8px 4px;
+  user-select: none;
+}
+
+/* Each column represents 1 week (7 days) */
+.github-week-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Dot cell container */
+.github-dot-cell {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.github-dot-cell.empty {
+  cursor: default;
+}
+
+/* Individual Circular Dots */
+.github-dot {
+  border-radius: 50%;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+/* Level 0: Tiny faint dot */
+.github-dot.level-0 {
+  width: 2.5px;
+  height: 2.5px;
+  background-color: var(--text-primary);
+  opacity: 0.16;
+}
+
+/* Level 1: Small circle */
+.github-dot.level-1 {
+  width: 4.5px;
+  height: 4.5px;
+  background-color: var(--text-primary);
+  opacity: 0.85;
+}
+
+/* Level 2: Medium circle */
+.github-dot.level-2 {
+  width: 7px;
+  height: 7px;
+  background-color: var(--text-primary);
+  opacity: 0.95;
+}
+
+/* Level 3: Large bold circle */
+.github-dot.level-3 {
+  width: 9.5px;
+  height: 9.5px;
+  background-color: var(--text-primary);
+  opacity: 1;
+}
+
+/* Level 4: Extra large bold circle */
+.github-dot.level-4 {
+  width: 12.5px;
+  height: 12.5px;
+  background-color: var(--text-primary);
+  opacity: 1;
+}
+
+/* Hover effect on dots */
+.github-dot-cell:hover .github-dot {
+  transform: scale(1.4);
+  background-color: var(--accent-orange);
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+}
+
+.github-dot-cell.level-0:hover .github-dot {
+  transform: scale(2.2);
+  opacity: 0.7;
+}
+
+/* Floating Tooltip */
+.github-tooltip {
+  position: fixed;
+  z-index: 1000;
+  transform: translate(-50%, -100%) translateY(-10px);
+  pointer-events: none;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+  animation: tooltipFadeIn 0.15s ease-out;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.tooltip-count {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tooltip-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translate(-50%, -100%) translateY(-6px); }
+  to { opacity: 1; transform: translate(-50%, -100%) translateY(-10px); }
+}
+
+/* Footer Row */
+.github-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.github-total-text {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .github-grid-wrapper {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .github-section {
+    padding: 40px 0;
+  }
+
+  .github-footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

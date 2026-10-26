@@ -1,0 +1,250 @@
+/* ==========================================================================
+   Stacked Projects Deck Styles (Matching Reference)
+   ========================================================================== */
+
+.projects-section {
+  padding: 100px 0 120px;
+  position: relative;
+}
+
+.projects-deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+.deck-header-num {
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.deck-header-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.deck-header-all:hover {
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.projects-deck-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck-cards-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck-card {
+  position: absolute;
+  width: 380px;
+  max-width: 88vw;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease, box-shadow 0.5s ease;
+}
+
+[data-theme="dark"] .deck-card {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Center Card (Front) */
+.deck-card-center {
+  z-index: 10;
+  transform: translate(0, 0) scale(1) rotate(0deg);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.12);
+  opacity: 1;
+}
+
+[data-theme="dark"] .deck-card-center {
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.6);
+}
+
+/* Left Card (Tilted behind to the left) */
+.deck-card-left {
+  z-index: 4;
+  transform: translate(-150px, 20px) scale(0.92) rotate(-9deg);
+  opacity: 0.82;
+}
+
+.deck-card-left:hover {
+  opacity: 0.95;
+  transform: translate(-160px, 14px) scale(0.94) rotate(-7deg);
+}
+
+/* Right Card (Tilted behind to the right) */
+.deck-card-right {
+  z-index: 4;
+  transform: translate(150px, 20px) scale(0.92) rotate(9deg);
+  opacity: 0.82;
+}
+
+.deck-card-right:hover {
+  opacity: 0.95;
+  transform: translate(160px, 14px) scale(0.94) rotate(7deg);
+}
+
+/* Pill Tag with Bracket Accents */
+.card-top-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: #000000;
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  width: fit-content;
+}
+
+[data-theme="dark"] .card-top-pill {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.card-identity-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.card-app-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.card-app-title {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.card-app-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.card-store-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 6px;
+  flex-wrap: wrap;
+}
+
+.store-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: #111111;
+  color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] .store-pill-btn {
+  background: #1E2028;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.store-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.store-sub {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+.store-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.deck-interaction-hint {
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 1024px) {
+  .deck-card-left {
+    transform: translate(-60px, 20px) scale(0.9) rotate(-6deg);
+  }
+  .deck-card-right {
+    transform: translate(60px, 20px) scale(0.9) rotate(6deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .deck-cards-wrapper {
+    height: 420px;
+  }
+  .deck-card {
+    padding: 24px;
+  }
+  .deck-card-left {
+    transform: translate(-30px, 15px) scale(0.88) rotate(-4deg);
+    opacity: 0.5;
+  }
+  .deck-card-right {
+    transform: translate(30px, 15px) scale(0.88) rotate(4deg);
+    opacity: 0.5;
+  }
+}

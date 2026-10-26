@@ -1,0 +1,176 @@
+/* ==========================================================================
+   Navbar Component Styles
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: var(--transition);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+/* Monogram Logo */
+.brand-logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+}
+
+.brand-logo-icon:hover {
+  transform: scale(1.06);
+  border-color: var(--text-primary);
+}
+
+.logo-monogram {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-item a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  color: var(--text-primary);
+}
+
+.nav-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--text-primary);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.nav-item a:hover::after,
+.nav-item a.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Segmented Light / Dark Switcher */
+.theme-segmented-switch {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  gap: 2px;
+}
+
+.theme-segment-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.theme-segment-btn:hover {
+  color: var(--text-primary);
+}
+
+.theme-segment-btn.active {
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn-pill-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 26px;
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+}
+
+.btn-pill-contact:hover {
+  transform: translateY(-2px);
+  background: var(--btn-dark-hover);
+  box-shadow: var(--shadow-card);
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  padding: 6px;
+}
+
+.mobile-nav-drawer {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  padding: 24px;
+  gap: 18px;
+  box-shadow: var(--shadow-card);
+}
+
+.mobile-nav-drawer a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 8px 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+}

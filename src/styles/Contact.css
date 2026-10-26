@@ -1,0 +1,51 @@
+/* ==========================================================================
+   Contact CTA Component Styles (Clean flat design, zero gradient glow)
+   ========================================================================== */
+
+.cta-section {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.cta-banner-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 70px 40px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.cta-title {
+  font-family: var(--font-hero);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  line-height: 1;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.cta-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 auto 36px;
+}
+
+.cta-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 38px;
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+  border-radius: var(--radius-pill);
+  font-size: 1.05rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-floating);
+  transition: var(--transition);
+}
+
+.cta-email-btn:hover {
+  background: var(--btn-dark-hover);
+  transform: scale(1.03);
+}

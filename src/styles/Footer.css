@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Footer Component Styles
+   ========================================================================== */
+
+.site-footer {
+  padding: 40px 0 50px;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-social-links a {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.footer-social-links a:hover {
+  color: var(--text-primary);
+}
+
+.back-to-top-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.back-to-top-btn:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,18 @@
+/* ==========================================================================
+   STEVEN BARTOLOME — Portfolio Root Stylesheet
+   Modular imports for design tokens, base styles, and individual components
+   ========================================================================== */
+
+@import './styles/variables.css';
+@import './styles/base.css';
+@import './styles/Navbar.css';
+@import './styles/Hero.css';
+@import './styles/BlockPortrait.css';
+@import './styles/Projects.css';
+@import './styles/Stacks.css';
+@import './styles/AllStacksView.css';
+@import './styles/Services.css';
+@import './styles/About.css';
+@import './styles/Contact.css';
+@import './styles/Footer.css';
+@import './styles/GithubContributions.css';

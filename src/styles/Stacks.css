@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Stacks Section Styles (Front Page)
+   ========================================================================== */
+
+.stacks-section {
+  padding: 90px 0 110px;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+}
+
+.stacks-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stacks-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stacks-main-heading {
+  font-family: var(--font-hero);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.stacks-front-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.stack-card-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition);
+}
+
+.stack-card-chip:hover {
+  transform: translateY(-3px);
+  border-color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.stack-chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+}
+
+.stack-more-chip {
+  cursor: pointer;
+  background: var(--bg-tertiary);
+  border-color: var(--border-light);
+  color: var(--accent-orange);
+}
+
+.stack-more-chip:hover {
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+}
+
+.more-count {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.stacks-cta-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-view-all-stacks {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn-view-all-stacks:hover {
+  transform: translateY(-2px);
+  background: var(--btn-dark-hover);
+  box-shadow: var(--shadow-card);
+}
