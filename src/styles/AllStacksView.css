@@ -5,6 +5,7 @@
 .all-stacks-page {
   padding: 40px 0 100px;
   min-height: calc(100vh - 160px);
+  overflow-x: clip;
 }
 
 .all-stacks-nav-bar {

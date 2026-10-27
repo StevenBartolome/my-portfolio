@@ -1,78 +1,15 @@
 import React, { useState } from 'react';
-import { ArrowRight, Apple, Play } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { FEATURED_PROJECTS } from '../data/projectsData';
 
-interface DeckProject {
-  id: string;
-  badge: string;
-  title: string;
-  description: string;
-  iconBg: string;
-  iconSvg: React.ReactNode;
-  hasAppStore?: boolean;
-  hasGooglePlay?: boolean;
+interface ProjectsProps {
+  onViewAll?: () => void;
 }
 
-export const Projects: React.FC = () => {
+export const Projects: React.FC<ProjectsProps> = ({ onViewAll }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const projects: DeckProject[] = [
-    {
-      id: 'mayi',
-      badge: '#1 PAID TRAVEL APP',
-      title: 'Mayi — Travel Buddy',
-      description: 'A travel buddy for planning trips and exploring on the go.',
-      iconBg: '#59BBEF',
-      iconSvg: (
-        <svg viewBox="0 0 100 100" width="48" height="48" fill="white">
-          <circle cx="50" cy="50" r="38" fill="white" />
-          <circle cx="40" cy="48" r="8" fill="#59BBEF" />
-          <circle cx="42" cy="46" r="3" fill="white" />
-          <circle cx="62" cy="48" r="8" fill="#59BBEF" />
-          <circle cx="64" cy="46" r="3" fill="white" />
-          <path d="M47 58 Q51 63 55 58" stroke="#F89D28" strokeWidth="4" strokeLinecap="round" fill="none" />
-        </svg>
-      ),
-      hasAppStore: true,
-      hasGooglePlay: true,
-    },
-    {
-      id: 'kabi',
-      badge: '#1 PAID FITNESS APP',
-      title: 'Kabi — Gym Companion',
-      description: 'A gym companion for tracking workouts and staying consistent.',
-      iconBg: '#2C2D35',
-      iconSvg: (
-        <svg viewBox="0 0 100 100" width="48" height="48" fill="white">
-          <path
-            d="M30 45 C30 35 40 30 50 30 C60 30 70 35 70 45 C70 58 60 70 50 72 C40 70 30 58 30 45 Z"
-            fill="white"
-          />
-          <circle cx="44" cy="44" r="3" fill="#2C2D35" />
-          <circle cx="56" cy="44" r="3" fill="#2C2D35" />
-          <path d="M30 38 L22 28 C20 25 24 22 27 24 L35 34 Z" fill="white" />
-          <path d="M70 38 L78 28 C80 25 76 22 73 24 L65 34 Z" fill="white" />
-        </svg>
-      ),
-      hasAppStore: true,
-      hasGooglePlay: true,
-    },
-    {
-      id: 'budget',
-      badge: 'APP STORE HIDDEN GEMS',
-      title: 'Budget Tracker',
-      description: 'Minimalist expense tracker and automated budget manager.',
-      iconBg: '#10B981',
-      iconSvg: (
-        <svg viewBox="0 0 100 100" width="48" height="48" fill="none" stroke="white" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="25" y="30" width="50" height="42" rx="10" fill="white" />
-          <circle cx="50" cy="51" r="7" fill="#10B981" />
-          <path d="M38 30 V24 C38 20 42 16 50 16 C58 16 62 20 62 24 V30" />
-        </svg>
-      ),
-      hasAppStore: true,
-      hasGooglePlay: true,
-    },
-  ];
+  const projects = FEATURED_PROJECTS;
+  const total = projects.length;
 
   // Cycling to the card below when clicked
   const handleCardClick = (clickedIndex: number) => {
@@ -85,23 +22,26 @@ export const Projects: React.FC = () => {
     }
   };
 
-  const total = projects.length;
-
   return (
     <section className="projects-section" id="projects">
       <div className="container">
         
-        {/* Minimal Monospace Section Header (Matching Attached Image) */}
-        <div className="projects-deck-header">
+        {/* Monospace Section Header with View All trigger */}
+        <div className="projects-deck-header reveal-text">
           <span className="deck-header-num">02 — projects</span>
-          <a href="#projects" className="deck-header-all" onClick={(e) => { e.preventDefault(); setActiveIndex((prev) => (prev + 1) % projects.length); }}>
+          <button
+            type="button"
+            className="deck-header-all"
+            onClick={onViewAll}
+            title="View complete list of all projects"
+          >
             <span>ALL PROJECTS</span>
             <ArrowRight size={14} />
-          </a>
+          </button>
         </div>
 
         {/* Interactive Stacked Cards Deck */}
-        <div className="projects-deck-container">
+        <div className="projects-deck-container reveal-fade reveal-delay-2">
           <div className="deck-cards-wrapper">
             {projects.map((project, index) => {
               // Calculate position in the 3-card stack relative to activeIndex
@@ -130,46 +70,72 @@ export const Projects: React.FC = () => {
                   }}
                   aria-label={`${project.title}. Click to cycle card.`}
                 >
-                  {/* Top Pill Tag with Bracket Accents */}
-                  <div className="card-top-pill">
-                    <span className="bracket-left">&#10094;</span>
-                    <span className="badge-text">{project.badge}</span>
-                    <span className="bracket-right">&#10095;</span>
-                  </div>
-
-                  {/* App Identity Row */}
-                  <div className="card-identity-row">
-                    <div
-                      className="card-app-icon"
-                      style={{ backgroundColor: project.iconBg }}
-                    >
-                      {project.iconSvg}
+                  {/* Top Header Row: Logo on left, Category & Number badge on right */}
+                  <div className="card-top-row">
+                    <div className="card-app-logo-wrap">
+                      <img
+                        src={project.logoSrc}
+                        alt={`${project.title} logo`}
+                        className="card-app-logo-img"
+                      />
                     </div>
-                    <h3 className="card-app-title">{project.title}</h3>
+
+                    <div className="card-header-meta">
+                      <span className="card-category-label">{project.badgeCategory}</span>
+                      <span className="card-number-badge">{project.number}</span>
+                    </div>
                   </div>
 
-                  {/* App Description */}
-                  <p className="card-app-description">{project.description}</p>
+                  {/* App Identity & Description */}
+                  <div className="card-content-block">
+                    <h3
+                      className="card-app-title"
+                      style={{ color: project.titleColor }}
+                    >
+                      {project.title}
+                    </h3>
+                    <h4 className="card-app-subtitle">{project.subtitle}</h4>
+                    <p className="card-app-description">{project.description}</p>
+                  </div>
 
-                  {/* App Store & Google Play Pill Buttons */}
-                  <div className="card-store-badges">
-                    {project.hasAppStore && (
-                      <div className="store-pill-btn">
-                        <Apple size={16} />
-                        <div className="store-text">
-                          <span className="store-sub">Download on the</span>
-                          <span className="store-name">App Store</span>
-                        </div>
-                      </div>
-                    )}
-                    {project.hasGooglePlay && (
-                      <div className="store-pill-btn">
-                        <Play size={13} fill="currentColor" />
-                        <div className="store-text">
-                          <span className="store-sub">GET IT ON</span>
-                          <span className="store-name">Google Play</span>
-                        </div>
-                      </div>
+                  {/* Actions Row: View Project & Circular GitHub Button */}
+                  <div className="card-actions-row">
+                    <a
+                      href={project.liveUrl || project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="card-view-project-btn"
+                      onClick={(e) => e.stopPropagation()}
+                      title={`View ${project.title}`}
+                    >
+                      <span>View Project</span>
+                      <ArrowUpRight size={16} />
+                    </a>
+
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="card-github-circle-btn"
+                        onClick={(e) => e.stopPropagation()}
+                        title={`View ${project.title} on GitHub`}
+                        aria-label={`View ${project.title} source code on GitHub`}
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        </svg>
+                      </a>
                     )}
                   </div>
                 </div>

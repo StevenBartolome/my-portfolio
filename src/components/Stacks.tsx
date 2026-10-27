@@ -25,14 +25,14 @@ export const Stacks: React.FC<StacksProps> = ({ onViewAll }) => {
       <div className="container">
         
         {/* Monospace Section Header */}
-        <div className="stacks-header-row">
+        <div className="stacks-header-row reveal-text">
           <div className="stacks-title-group">
             <span className="deck-header-num">03 — stacks</span>
-            <h2 className="stacks-main-heading">Core Technologies</h2>
+            <h2 className="stacks-main-heading reveal-text reveal-delay-1">Core Technologies</h2>
           </div>
           <button
             type="button"
-            className="deck-header-all"
+            className="deck-header-all reveal-text reveal-delay-1"
             onClick={onViewAll}
             title="View complete list of technology stacks"
           >
@@ -42,7 +42,7 @@ export const Stacks: React.FC<StacksProps> = ({ onViewAll }) => {
         </div>
 
         {/* 10 Stacks Chips Grid + More chip */}
-        <div className="stacks-front-grid">
+        <div className="stacks-front-grid reveal-fade reveal-delay-2">
           {frontStacks.map((tech) => (
             <div key={tech} className="stack-card-chip">
               <span className="stack-chip-dot" />

@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import type { ThemeMode } from '../types';
 
 interface NavbarProps {
-  theme: ThemeMode;
-  onToggleTheme: () => void;
-  onSetTheme: (theme: ThemeMode) => void;
+  theme?: ThemeMode;
+  onToggleTheme?: () => void;
+  onSetTheme?: (theme: ThemeMode) => void;
   onNavigateToStacks?: () => void;
+  onNavigateToHome?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ theme, onSetTheme, onNavigateToStacks }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onNavigateToStacks, onNavigateToHome }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -17,16 +18,31 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onSetTheme, onNavigateToS
     { name: 'Projects', href: '#projects' },
     { name: 'Stacks', href: '#stacks', isStacks: true },
     { name: 'GitHub', href: '#github' },
-    { name: 'Services', href: '#services' },
+    { name: 'What I Do', href: '#services' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  const handleLinkClick = (isStacks?: boolean) => {
+    setMobileMenuOpen(false);
+    if (isStacks && onNavigateToStacks) {
+      onNavigateToStacks();
+    } else if (onNavigateToHome) {
+      onNavigateToHome();
+    }
+  };
 
   return (
     <header className="site-header" id="siteHeader">
       <div className="container nav-inner">
         {/* Minimal Monogram Logo (No emoji, no full name text) */}
-        <a href="#hero" className="brand-logo-icon" id="brandLogo" aria-label="Home">
+        <a
+          href="#hero"
+          className="brand-logo-icon"
+          id="brandLogo"
+          aria-label="Home"
+          onClick={() => onNavigateToHome?.()}
+        >
           <span className="logo-monogram">SB</span>
         </a>
 
@@ -37,11 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onSetTheme, onNavigateToS
               <li key={link.name} className="nav-item">
                 <a
                   href={link.href}
-                  onClick={() => {
-                    if (link.isStacks && onNavigateToStacks) {
-                      onNavigateToStacks();
-                    }
-                  }}
+                  onClick={() => handleLinkClick(link.isStacks)}
                 >
                   {link.name}
                 </a>
@@ -51,32 +63,12 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onSetTheme, onNavigateToS
         </nav>
 
         <div className="nav-actions">
-          {/* Segmented Theme Switcher (Light / Dark) */}
-          <div className="theme-segmented-switch" role="group" aria-label="Select Color Theme">
-            <button
-              type="button"
-              className={`theme-segment-btn ${theme === 'light' ? 'active' : ''}`}
-              onClick={() => onSetTheme('light')}
-              title="Switch to Light Theme"
-              aria-pressed={theme === 'light'}
-            >
-              <Sun size={14} />
-              <span>Light</span>
-            </button>
-            <button
-              type="button"
-              className={`theme-segment-btn ${theme === 'dark' ? 'active' : ''}`}
-              onClick={() => onSetTheme('dark')}
-              title="Switch to Dark Theme"
-              aria-pressed={theme === 'dark'}
-            >
-              <Moon size={14} />
-              <span>Dark</span>
-            </button>
-          </div>
-
           {/* Contact Pill Button */}
-          <a href="#contact" className="btn-pill-contact">
+          <a
+            href="#contact"
+            className="btn-pill-contact"
+            onClick={() => onNavigateToHome?.()}
+          >
             Contact
           </a>
 
@@ -98,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, onSetTheme, onNavigateToS
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => handleLinkClick(link.isStacks)}
             >
               {link.name}
             </a>

@@ -1,10 +1,11 @@
 /* ==========================================================================
-   Stacked Projects Deck Styles (Matching Reference)
+   Stacked Projects Deck Styles (Faithfully Matching Design Screenshot)
    ========================================================================== */
 
 .projects-section {
   padding: 100px 0 120px;
   position: relative;
+  overflow-x: clip;
 }
 
 .projects-deck-header {
@@ -43,208 +44,302 @@
 .projects-deck-container {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
-  min-height: 440px;
+  min-height: 480px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-x: clip;
 }
 
 .deck-cards-wrapper {
   position: relative;
   width: 100%;
-  height: 380px;
+  height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Individual Stacked Card */
 .deck-card {
   position: absolute;
-  width: 380px;
-  max-width: 88vw;
+  width: 410px;
+  max-width: 90vw;
   background: var(--card-bg);
   border: 1px solid var(--border-light);
-  border-radius: 28px;
-  padding: 30px;
+  border-radius: 32px;
+  padding: 32px 30px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 22px;
   cursor: pointer;
   user-select: none;
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease, box-shadow 0.5s ease;
 }
 
 [data-theme="dark"] .deck-card {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  background: #17181F;
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Center Card (Front) */
 .deck-card-center {
   z-index: 10;
   transform: translate(0, 0) scale(1) rotate(0deg);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.12);
   opacity: 1;
 }
 
 [data-theme="dark"] .deck-card-center {
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65);
 }
 
 /* Left Card (Tilted behind to the left) */
 .deck-card-left {
   z-index: 4;
-  transform: translate(-150px, 20px) scale(0.92) rotate(-9deg);
+  transform: translate(-155px, 20px) scale(0.92) rotate(-9deg);
   opacity: 0.82;
 }
 
 .deck-card-left:hover {
   opacity: 0.95;
-  transform: translate(-160px, 14px) scale(0.94) rotate(-7deg);
+  transform: translate(-165px, 14px) scale(0.94) rotate(-7deg);
 }
 
 /* Right Card (Tilted behind to the right) */
 .deck-card-right {
   z-index: 4;
-  transform: translate(150px, 20px) scale(0.92) rotate(9deg);
+  transform: translate(155px, 20px) scale(0.92) rotate(9deg);
   opacity: 0.82;
 }
 
 .deck-card-right:hover {
   opacity: 0.95;
-  transform: translate(160px, 14px) scale(0.94) rotate(7deg);
+  transform: translate(165px, 14px) scale(0.94) rotate(7deg);
 }
 
-/* Pill Tag with Bracket Accents */
-.card-top-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 14px;
-  background: #000000;
-  color: #FFFFFF;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  width: fit-content;
-}
-
-[data-theme="dark"] .card-top-pill {
-  background: #FFFFFF;
-  color: #000000;
-}
-
-.card-identity-row {
+/* Top Row: App Logo + Category Meta */
+.card-top-row {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  margin-top: 4px;
+  width: 100%;
 }
 
-.card-app-icon {
+.card-app-logo-wrap {
   width: 58px;
   height: 58px;
-  border-radius: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--border-light);
+  background: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .card-app-logo-wrap {
+  background: #20222B;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card-app-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.card-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-category-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #6B7280;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .card-category-label {
+  color: #9CA3AF;
+}
+
+.card-number-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #F3F4F6;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .card-number-badge {
+  background: #252834;
+  color: #F9FAFB;
+}
+
+/* Content Block */
+.card-content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
 }
 
 .card-app-title {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.card-app-subtitle {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.2;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-top: 2px;
 }
 
 .card-app-description {
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: #6B7280;
   line-height: 1.5;
+  margin-top: 4px;
 }
 
-.card-store-badges {
+[data-theme="dark"] .card-app-description {
+  color: #9CA3AF;
+}
+
+/* Actions Row: Pill Button + GitHub Circle */
+.card-actions-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: auto;
-  padding-top: 6px;
-  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
 }
 
-.store-pill-btn {
+.card-view-project-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 7px 14px;
-  background: #111111;
+  padding: 13px 26px;
+  background: #000000;
   color: #FFFFFF;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-[data-theme="dark"] .store-pill-btn {
-  background: #1E2028;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.store-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.store-sub {
-  font-size: 0.58rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  opacity: 0.75;
-}
-
-.store-name {
-  font-size: 0.8rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
   font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .card-view-project-btn {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.card-view-project-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  opacity: 0.95;
+}
+
+.card-github-circle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #F3F4F6;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .card-github-circle-btn {
+  background: #252834;
+  color: #F9FAFB;
+}
+
+.card-github-circle-btn:hover {
+  background: #E5E7EB;
+  transform: scale(1.08);
+}
+
+[data-theme="dark"] .card-github-circle-btn:hover {
+  background: #323646;
 }
 
 .deck-interaction-hint {
-  margin-top: 28px;
+  margin-top: 32px;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   letter-spacing: 0.04em;
 }
 
 @media (max-width: 1024px) {
   .deck-card-left {
-    transform: translate(-60px, 20px) scale(0.9) rotate(-6deg);
+    transform: translate(-50px, 16px) scale(0.9) rotate(-5deg);
   }
   .deck-card-right {
-    transform: translate(60px, 20px) scale(0.9) rotate(6deg);
+    transform: translate(50px, 16px) scale(0.9) rotate(5deg);
   }
 }
 
 @media (max-width: 768px) {
+  .projects-section {
+    padding: 70px 0 90px;
+    overflow-x: clip;
+  }
   .deck-cards-wrapper {
-    height: 420px;
+    height: 440px;
   }
   .deck-card {
-    padding: 24px;
+    width: min(340px, calc(100vw - 36px));
+    max-width: calc(100vw - 36px);
+    padding: 24px 20px;
   }
   .deck-card-left {
-    transform: translate(-30px, 15px) scale(0.88) rotate(-4deg);
-    opacity: 0.5;
+    transform: translate(-12px, 12px) scale(0.92) rotate(-2.5deg);
+    opacity: 0.45;
   }
   .deck-card-right {
-    transform: translate(30px, 15px) scale(0.88) rotate(4deg);
-    opacity: 0.5;
+    transform: translate(12px, 12px) scale(0.92) rotate(2.5deg);
+    opacity: 0.45;
+  }
+  .card-app-title {
+    font-size: 1.55rem;
+  }
+  .card-app-subtitle {
+    font-size: 1.1rem;
+  }
+  .card-view-project-btn {
+    padding: 11px 18px;
+    font-size: 0.88rem;
   }
 }

@@ -93,6 +93,17 @@ export const GithubContributions: React.FC = () => {
     };
   }, []);
 
+  // Dismiss tooltip when tapping outside on mobile devices
+  useEffect(() => {
+    const handleTouchOutside = (e: TouchEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setHoveredDay(null);
+      }
+    };
+    window.addEventListener('touchstart', handleTouchOutside);
+    return () => window.removeEventListener('touchstart', handleTouchOutside);
+  }, []);
+
   // Organize days into 53 columns (weeks of the year) with 7 days each
   const weeks = useMemo(() => {
     const list = data.contributions;
@@ -150,6 +161,15 @@ export const GithubContributions: React.FC = () => {
     });
   };
 
+  const handleTouchStart = (day: DayContribution, e: React.TouchEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setHoveredDay({
+      day,
+      x: rect.left + rect.width / 2,
+      y: rect.top,
+    });
+  };
+
   const handleMouseLeave = () => {
     setHoveredDay(null);
   };
@@ -160,7 +180,7 @@ export const GithubContributions: React.FC = () => {
         <div className="github-panel-container" ref={containerRef}>
           
           {/* Header Row: 04 — github and @HANDLE ↗ */}
-          <div className="github-header-row">
+          <div className="github-header-row reveal-text">
             <div className="deck-header-left">
               <span className="deck-header-num">04 — github</span>
             </div>
@@ -176,8 +196,8 @@ export const GithubContributions: React.FC = () => {
             </a>
           </div>
 
-          {/* Dot Matrix Contribution Grid */}
-          <div className="github-grid-wrapper">
+          {/* Dot Matrix Contribution Grid (Fully visible, non-scrollable across all screens) */}
+          <div className="github-grid-wrapper reveal-fade reveal-delay-1">
             <div className="github-grid">
               {weeks.map((week, wIdx) => (
                 <div key={wIdx} className="github-week-col">
@@ -192,6 +212,10 @@ export const GithubContributions: React.FC = () => {
                         className={`github-dot-cell level-${day.level}`}
                         onMouseEnter={(e) => handleMouseEnter(day, e)}
                         onMouseLeave={handleMouseLeave}
+                        onTouchStart={(e) => handleTouchStart(day, e)}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`${day.count} contributions on ${day.date}`}
                       >
                         <span className={`github-dot level-${day.level}`} />
                       </div>
@@ -232,4 +256,3 @@ export const GithubContributions: React.FC = () => {
     </section>
   );
 };
-

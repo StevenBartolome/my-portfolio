@@ -9,6 +9,7 @@
   align-items: center;
   padding: 50px 0 40px;
   background: transparent;
+  overflow-x: clip;
 }
 
 .hero-container {

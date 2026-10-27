@@ -1,10 +1,11 @@
 /* ==========================================================================
-   Contact CTA Component Styles (Clean flat design, zero gradient glow)
+   Contact CTA Component Styles
    ========================================================================== */
 
 .cta-section {
   padding: 100px 0;
   text-align: center;
+  overflow-x: clip;
 }
 
 .cta-banner-box {
@@ -14,38 +15,352 @@
   padding: 70px 40px;
   box-shadow: var(--shadow-card);
   position: relative;
+  overflow: hidden;
 }
 
 .cta-title {
   font-family: var(--font-hero);
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
-  line-height: 1;
-  margin-bottom: 16px;
+  font-size: clamp(2.2rem, 5.2vw, 4.2rem);
+  line-height: 1.05;
+  margin-bottom: 20px;
   color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.cta-title-divider {
+  color: var(--text-muted);
+  font-weight: 300;
+  opacity: 0.6;
+  margin: 0 4px;
 }
 
 .cta-subtitle {
   font-size: 1.15rem;
   color: var(--text-secondary);
-  max-width: 580px;
+  max-width: 620px;
   margin: 0 auto 36px;
+  line-height: 1.6;
 }
 
-.cta-email-btn {
+/* ==========================================================================
+   Interactive Email Copy Pill Component
+   ========================================================================== */
+
+.contact-email-wrapper {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+  max-width: 100%;
+}
+
+.contact-email-pill {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 38px;
-  background: var(--btn-dark-bg);
-  color: var(--btn-dark-text);
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 14px 10px 18px;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-pill);
-  font-size: 1.05rem;
-  font-weight: 600;
-  box-shadow: var(--shadow-floating);
+  box-shadow: var(--shadow-subtle);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  max-width: 100%;
+}
+
+.contact-email-pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.contact-email-pill:active {
+  transform: scale(0.97);
+}
+
+.contact-email-pill:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 3px;
+}
+
+/* Copied state */
+.contact-email-pill.is-copied {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.22);
+}
+
+.email-pill-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.email-pill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  flex-shrink: 0;
   transition: var(--transition);
 }
 
-.cta-email-btn:hover {
-  background: var(--btn-dark-hover);
-  transform: scale(1.03);
+.contact-email-pill:hover .email-pill-icon {
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+  border-color: transparent;
+}
+
+.contact-email-pill.is-copied .email-pill-icon {
+  background: #10b981;
+  color: #ffffff;
+  border-color: transparent;
+  transform: scale(1.08);
+}
+
+.email-pill-address {
+  font-family: var(--font-mono);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  user-select: all;
+  -webkit-user-select: all;
+}
+
+.email-pill-action {
+  flex-shrink: 0;
+}
+
+.email-pill-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-email-pill:hover .email-pill-status {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.contact-email-pill.is-copied .email-pill-status {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.35);
+}
+
+/* Check icon spring animation */
+.check-pop {
+  animation: checkPop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(0) rotate(-25deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.3) rotate(6deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Floating feedback toast */
+.email-copied-toast {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #10b981;
+  color: #ffffff;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+  animation: toastEntrance 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+@keyframes toastEntrance {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -6px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* ==========================================================================
+   Social links grid inside CTA banner
+   ========================================================================== */
+
+.contact-social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-social-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-social-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+}
+
+.social-card-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.contact-social-card:hover .social-card-icon-wrap {
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+  border-color: transparent;
+}
+
+.social-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.social-card-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.social-card-name {
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.social-card-arrow {
+  color: var(--text-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.contact-social-card:hover .social-card-arrow {
+  color: var(--text-primary);
+  transform: translate(2px, -2px);
+}
+
+.social-card-handle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Responsive adjustments
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .contact-social-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-banner-box {
+    padding: 50px 20px;
+  }
+  
+  .contact-social-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-email-pill {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    width: 100%;
+    align-items: center;
+    border-radius: var(--radius-md);
+  }
+
+  .email-pill-left {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .email-pill-address {
+    font-size: 0.92rem;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  .email-pill-status {
+    width: 100%;
+    justify-content: center;
+  }
 }

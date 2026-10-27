@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Scroll-Triggered Smooth Text & Element Loading Animations
+   ========================================================================== */
+
+/* Base smooth text reveal (smooth upward translation + optical blur focus) */
+.reveal-text {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(4px);
+  transition: 
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-text.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Subtle smaller translation for paragraphs and badges */
+p.reveal-text,
+span.reveal-text {
+  transform: translateY(20px);
+}
+
+p.reveal-text.is-revealed,
+span.reveal-text.is-revealed {
+  transform: translateY(0);
+}
+
+/* Card & Component container entrance */
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition: 
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delay classes for cascading animations */
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+.reveal-delay-5 { transition-delay: 400ms; }
+.reveal-delay-6 { transition-delay: 480ms; }
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}

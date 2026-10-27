@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="jbsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#4338CA"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="url(#jbsGrad)"/>
+  <circle cx="50" cy="50" r="32" fill="#FFFFFF" opacity="0.15"/>
+  <!-- Modern Building & Key / Bed glyph -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 72 V38 l22 -14 22 14 v34 z"/>
+    <rect x="42" y="52" width="16" height="20"/>
+    <rect x="36" y="40" width="8" height="8"/>
+    <rect x="56" y="40" width="8" height="8"/>
+  </g>
+</svg>

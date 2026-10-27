@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
 
             {/* Description */}
             <p className="hero-bio-text">
-              Specialized in engineering robust backend architectures, distributed microservices, and high-throughput APIs for mobile and web applications. Focused on reliability, database performance, and security.
+              Focused on building practical mobile and web applications with clean backend logic, APIs, and databases. Driven by curiosity, continuous learning, and writing reliable code.
             </p>
 
             {/* Social Links */}
@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
               </a>
 
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/mark-steven-bartolome-3ab057441?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-pill-link"
@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/steveniee_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-pill-link"

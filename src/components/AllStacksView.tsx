@@ -90,16 +90,16 @@ export const AllStacksView: React.FC<AllStacksViewProps> = ({ onBack }) => {
 
         {/* Page Header */}
         <div className="all-stacks-header-block">
-          <h1 className="all-stacks-main-title">TECHNOLOGY STACK</h1>
-          <p className="all-stacks-subtitle">
+          <h1 className="all-stacks-main-title reveal-text">TECHNOLOGY STACK</h1>
+          <p className="all-stacks-subtitle reveal-text reveal-delay-1">
             Comprehensive breakdown of my technical stack across frontend frameworks, backend engines, AI tooling, and developer environments.
           </p>
         </div>
 
         {/* Categories Grid */}
         <div className="all-stacks-category-grid">
-          {stackCategories.map((category) => (
-            <div key={category.id} className="stack-category-card">
+          {stackCategories.map((category, idx) => (
+            <div key={category.id} className={`stack-category-card reveal-fade reveal-delay-${idx + 1}`}>
               <div className="category-card-header">
                 <div className="category-icon-box">{category.icon}</div>
                 <div className="category-title-wrap">

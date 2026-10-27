@@ -11,8 +11,11 @@
 @import './styles/Projects.css';
 @import './styles/Stacks.css';
 @import './styles/AllStacksView.css';
+@import './styles/AllProjectsView.css';
 @import './styles/Services.css';
 @import './styles/About.css';
 @import './styles/Contact.css';
 @import './styles/Footer.css';
 @import './styles/GithubContributions.css';
+@import './styles/LampPullCord.css';
+@import './styles/ScrollReveal.css';
